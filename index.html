@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History API Example</title>
+</head>
+<body>
+
+    <script>
+        // Отримуємо поточний URL
+        var currentURL = window.location.href;
+
+        // Новий URL, який ми хочемо встановити
+        var newURL = "My/Maria`s/new/path/to/page";
+
+        // Змінюємо URL за допомогою pushState
+        window.history.pushState({ path: newURL }, "", newURL);
+
+        // Тепер поточний URL змінився, але сторінка не перезавантажена.
+
+        // Якщо ви хочете слідкувати за змінами URL, ви можете додати обробник подій на popstate:
+        window.addEventListener("popstate", function(e) {
+            // Поточний URL при зміні історії
+            var poppedURL = window.location.href;
+            console.log("Поточний URL при зміні історії: " + poppedURL);
+        });
+    </script>
+
+</body>
+</html>
